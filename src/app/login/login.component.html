@@ -1,0 +1,35 @@
+<div class="layui-container">
+  <div class="layui-row">
+    <!-- 注册formGroup控件 -->
+    <form [formGroup]="user" (ngSubmit)="onLogin()" style="margin-top: 100px;" class="layui-col-xs5 layui-col-sm5 layui-col-md5 layui-col-md-offset3" action="/user/login" lay-filter="example"  method="post">
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <!-- formControlName="username"替换掉name="username" -->
+          <input type="text" #username  formControlName="username" placeholder="用户名" class="layui-input">
+        </div>
+        <div *ngIf="user.get('username').hasError('required') && user.get('username').touched" class="error">
+          用户名不能为空
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <input type="password" #password formControlName="password" placeholder="请输入密码" class="layui-input">
+        </div>
+        <div *ngIf="user.get('password').hasError('required') && user.get('password').touched" class="error">
+          密码不能为空
+        </div>
+      </div>
+      <div class="layui-input-block">
+        <!-- value可以填写的值，可查看AbstractRememberMeServices类中的rememberMeRequested方法 -->
+        <input type="checkbox" #rememberMe formControlName="rememberMe" lay-skin="primary"  value="1" title="记住我" >记住我
+      </div>
+      <div class="layui-form-item">
+        <div class="layui-input-block">
+          <!--  [disabled]="!user.valid" 绑定，用于在 user 验证未通过时禁用该按钮 -->
+          <input type="submit" [ngClass]="{'layui-btn': true, 'disabled-btn': !user.valid}" [disabled]="!user.valid" lay-submit="" lay-filter="loginForm"/>
+          <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

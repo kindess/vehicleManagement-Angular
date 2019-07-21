@@ -1,0 +1,7 @@
+<nav class="offset-left">
+  <a (click)="toggleEditor('login')">登录</a>
+  <a (click)="toggleEditor('register')">注册</a>
+</nav>
+
+<app-login *ngIf="showLogin"></app-login>
+<app-register *ngIf="showRegister"></app-register>

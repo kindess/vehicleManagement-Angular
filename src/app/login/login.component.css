@@ -1,0 +1,7 @@
+.disabled-btn{
+  background-color: rgb(204, 202, 202);
+}
+.error{
+  margin-left: 110px;
+  color: red;
+}

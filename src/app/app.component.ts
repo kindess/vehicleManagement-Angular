@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-
+import { Component , TemplateRef} from '@angular/core';
+import { DialogService } from "ngx-bootstrap-modal";
+import {VehicleManagementComponent} from "./vehicle-management/vehicle-management.component";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'vehicleManagement';
+  constructor(public dialogService: DialogService) {
+  }
+  showAlert() {
+    // @ts-ignore
+    this.dialogService.addDialog(VehicleManagementComponent, { title: 'Alert title!', message: 'Alert message!!!' });
+  }
 }

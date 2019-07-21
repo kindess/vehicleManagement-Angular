@@ -4,10 +4,23 @@
   <meta charset="utf-8">
   <title>VehicleManagement</title>
   <base href="/">
-
+  <link rel="stylesheet" href="assets/layui/css/layui.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap-table/css/bootstrap-table.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="assets/layui/layui.js"></script>
+  <script type="text/javascript" src="assets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/bootstrap-table/js/bootstrap-table.min.js"></script>
+  <script type="text/javascript" src="assets/bootstrap-table/js/bootstrap-table-zh-CN.js"></script>
 </head>
+<!-- 组件中忽略script标签，防止注入 -->
+<!-- 在此加载需要的layui模块，然后在任意组件中都可使用已加载的模块 -->
+<script>
+  layui.use(['form','layer','upload','table'],function () {
+  });
+</script>
 <body>
   <app-root></app-root>
 </body>
