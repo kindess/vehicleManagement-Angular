@@ -19,8 +19,6 @@ import {VehicleService} from './vehicle.service';
 // bootstrap模态框
 import {ModalModule} from 'ngx-bootstrap';
 
-//这种模态框只需要导入下面这两个
-import { BootstrapModalModule } from 'ngx-bootstrap-modal';
 
 @NgModule({
   declarations: [
@@ -39,7 +37,6 @@ import { BootstrapModalModule } from 'ngx-bootstrap-modal';
     FormsModule,
     ModalModule,
     ModalModule.forRoot(),
-    BootstrapModalModule
   ],
   // 服务提供者
   providers: [ LoginOrRegisterServiceService , CookieService, VehicleService

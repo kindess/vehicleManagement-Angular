@@ -1,32 +1,25 @@
 import { Component, OnInit} from '@angular/core';
 import {VehicleService} from '../vehicle.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DialogComponent, DialogService } from 'ngx-bootstrap-modal';
 export interface AlertModel {
   title: string;
   message: string;
 }
 declare var layui: any;
-
+// declare var $: any;
 @Component({
   selector: 'app-vehicle-management',
   templateUrl: './vehicle-management.component.html',
   styleUrls: ['./vehicle-management.component.css']
 })
-export class VehicleManagementComponent extends DialogComponent<AlertModel, null> implements AlertModel,OnInit{
-  // AlertModel接口参数
-  message: string;
-  title: string;
-
+export class VehicleManagementComponent implements OnInit{
 
   vehicleInfo;
   // 厂牌下拉框
   vehicleBrandSelect: FormGroup;
   array =[{fieldId: '', fieldName:''}];
   constructor(private vehicleService: VehicleService,
-              private fb:FormBuilder,
-              dialogService: DialogService) {
-    super(dialogService);
+              private fb:FormBuilder) {
   }
   ngOnInit(): void {
     this.vehicleBrandSelect = this.fb.group([
@@ -88,8 +81,9 @@ export class VehicleManagementComponent extends DialogComponent<AlertModel, null
   }
 
   ngAfterViewInit() {
+    console.log($("#table"))
     // 加载数据表格
-    // @ts-ignore 忽略下一行错误（bootstrapTable方法没有被定义）
+    // @ts-ignore
     $('#table').bootstrapTable({
       url: 'http://localhost:8080/vehicleInfo/queryInfoList',
       ajaxOptions: {

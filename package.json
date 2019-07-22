@@ -1,5 +1,5 @@
 {
-  "name": "vehicle-management",
+  "name": "test",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -23,9 +23,7 @@
     "bootstrap-table": "^1.15.3",
     "jquery": "^3.4.1",
     "ngx-bootstrap": "^5.1.0",
-    "ngx-bootstrap-modal": "^2.0.0",
     "ngx-cookie-service": "^2.2.0",
-    "popper.js": "^1.15.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
@@ -43,13 +41,11 @@
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
-    "jquery": "^3.4.1",
     "karma": "~4.1.0",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
-    "layui-src": "^2.5.4",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
