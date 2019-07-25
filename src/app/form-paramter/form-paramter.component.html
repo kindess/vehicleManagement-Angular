@@ -1,0 +1,233 @@
+<div #form_data>
+  <form
+    nz-form
+  >
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">车牌号</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="车牌号不能为空!">
+        <input nz-input [(ngModel)]="vehicleInfo.vehicleLicense" name="vehicleLicense" required/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]=5>车辆所有人</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="车辆所有人不能为空!">
+        <input nz-input [(ngModel)]="vehicleInfo.owener" name="owener" required />
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">车牌颜色</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="车牌颜色不能为空!">
+        <nz-select [(ngModel)]="vehicleInfo.optionColorId" name="optionColorId">
+          <nz-option nzValue="-1" nzLabel="请选择"></nz-option>
+          <nz-option *ngFor="let item of BrandColorSelect" [nzValue]="item.fieldId" [nzLabel]="item.fieldName"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">发动机号</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="发动机号不能为空!">
+        <input nz-input [(ngModel)]="vehicleInfo.engineNumber" name="engineNumber" required/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">车辆厂牌</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="车辆厂牌不能为空!">
+        <nz-select [(ngModel)]="vehicleInfo.vehicleBrandId" name="vehicleBrandId" required>
+          <nz-option nzValue="-1" nzLabel="请选择"></nz-option>
+          <nz-option *ngFor="let item of BrandSelect" [nzValue]="item.fieldId" [nzLabel]="item.fieldName"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">车辆机架号</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="车辆机架号不能为空!" >
+        <input nz-input name="vehicleRackNumber" [(ngModel)]="vehicleInfo.vehicleRackNumber" required/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">车辆型号</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="车辆型号不能为空!">
+        <input nz-input name="vehicleModel" [(ngModel)]="vehicleInfo.vehicleModel" required/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">注册日期</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="注册日期不能为空!">
+        <nz-date-picker [nzFormat]="dateFormat" name="registerDate" [(ngModel)]="vehicleInfo.registerDate" required></nz-date-picker>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">车辆类型</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="车辆类型不能为空!">
+        <nz-select [(ngModel)]="vehicleInfo.vehicleTypeId" name="vehicleTypeId" required>
+          <nz-option nzValue="-1" nzLabel="请选择"></nz-option>
+          <nz-option *ngFor="let item of vehicleTypeSelect" [nzValue]="item.fieldId" [nzLabel]="item.fieldName"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">初次登记日期</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="初次登记日期不能为空!">
+        <nz-date-picker  name="dateInitialRegistration" [(ngModel)]="vehicleInfo.dateInitialRegistration" required></nz-date-picker>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">车身颜色</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="车身颜色不能为空!">
+        <input nz-input [(ngModel)]="vehicleInfo.bodyColor" name="bodyColor" required/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">车辆检修状态</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="车辆检修状态不能为空!">
+        <nz-select [(ngModel)]="vehicleInfo.vehicleMaintenanceStatusId" name="vehicleMaintenanceStatusId" required>
+          <nz-option nzValue="-1" nzLabel="请选择"></nz-option>
+          <nz-option *ngFor="let item of MaintenanceStatusSelect" [nzValue]="item.fieldId" [nzLabel]="item.fieldName"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">核定载客位</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="核定载客位不能为空!" [nzValidateStatus]="validateStatus(vehicleInfo.seatingCapacity)" nzWarningTip="请不要输入除数字之外的其他字符">
+        <input nz-input [(ngModel)]="vehicleInfo.seatingCapacity" name="seatingCapacity" placeholder="包含驾驶员"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">车辆年审状态</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="车辆年审状态不能为空!">
+        <nz-select [(ngModel)]="vehicleInfo.annualReviewStatusId" name="annualReviewStatusId" required>
+          <nz-option nzValue="-1" nzLabel="请选择"></nz-option>
+          <nz-option *ngFor="let item of annualReviewStatusSelect" [nzValue]="item.fieldId" [nzLabel]="item.fieldName"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">燃料类型</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="燃料类型不能为空!" required>
+        <nz-select [(ngModel)]="vehicleInfo.fuelTypeId" name="fuelTypeId" required>
+          <nz-option nzValue="-1" nzLabel="请选择"></nz-option>
+          <nz-option *ngFor="let item of fuelTypeSelect" [nzValue]="item.fieldId" [nzLabel]="item.fieldName"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">下次年检时间</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="下次年检时间不能为空!">
+        <nz-date-picker  name="nextAnnualInspectionTime" [(ngModel)]="vehicleInfo.nextAnnualInspectionTime" required></nz-date-picker>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">排量</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="排量不能为空!" [nzValidateStatus]="validateStatus(vehicleInfo.displacement)" nzWarningTip="请不要输入除数字之外的其他字符">
+        <input nz-input [(ngModel)]="vehicleInfo.displacement" name="displacement" required/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">等级</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="排量不能为空!">
+        <nz-select [(ngModel)]="vehicleInfo.levelId" name="levelId" required>
+          <nz-option nzValue="-1" nzLabel="请选择"></nz-option>
+          <nz-option *ngFor="let item of levelSelect" [nzValue]="item.fieldId" [nzLabel]="item.fieldName"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">业务用途</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="Please input your username!">
+        <nz-select [(ngModel)]="vehicleInfo.businessPurposeId" name="businessPurposeId">
+          <nz-option nzValue="-1" nzLabel="请选择"></nz-option>
+          <nz-option *ngFor="let item of businessPurposeSelect" [nzValue]="item.fieldId" [nzLabel]="item.fieldName"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">运营范围</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="Please input your username!">
+        <nz-select [(ngModel)]="vehicleInfo.scopeOfBusinessId" name="scopeOfBusinessId">
+          <nz-option nzValue="-1" nzLabel="请选择"></nz-option>
+          <nz-option *ngFor="let item of scopeOfBusinessSelect" [nzValue]="item.fieldId" [nzLabel]="item.fieldName"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">所属供应商</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="Please input your username!">
+        <nz-select [(ngModel)]="vehicleInfo.subordinateSuppliersId" name="subordinateSuppliersId">
+          <nz-option nzValue="-1" nzLabel="请选择"></nz-option>
+          <nz-option *ngFor="let item of subordinateSuppliersSelect" [nzValue]="item.fieldId" [nzLabel]="item.fieldName"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">载客数</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="载客数不能为空!" [nzValidateStatus]="validateStatus(vehicleInfo.seatsOfGuests)" nzWarningTip="请不要输入除数字之外的其他字符">
+        <input nz-input [(ngModel)]="vehicleInfo.seatsOfGuests" name="seatsOfGuests" placeholder="不包含驾驶员" required/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">里程数</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="里程数不能为空!" [nzValidateStatus]="validateStatus(vehicleInfo.mileage)" nzWarningTip="请不要输入除数字之外的其他字符">
+        <input nz-input [(ngModel)]="vehicleInfo.mileage" name="mileage" required/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">行驶证号</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="行驶证号不能为空!">
+        <input nz-input [(ngModel)]="vehicleInfo.drivingLicenseNumber" name="drivingLicenseNumber" required/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">调度权</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="调度权不能为空!">
+        <nz-radio-group [(ngModel)]="vehicleInfo.dispatchingRightId" [nzButtonStyle]="'solid'" name="dispatchingRightId" required>
+          <label nz-radio-button [nzValue]="item.fieldId" *ngFor="let item of dispatchingRightRadio">{{item.fieldName}}</label>
+        </nz-radio-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-label [nzSpan]="5">图片</nz-form-label>
+    <!--   跨域上传    -->
+    <nz-upload
+      nzAction="http://localhost:8080/vehicleInfo/uploadFile"
+      nzListType="picture-card"
+      nzFileType="image/png,image/jpeg,image/gif,image/bmp"
+      [nzWithCredentials]="true"
+      [(nzFileList)]="fileList"
+      [nzShowButton]="fileList.length < 1"
+      [nzShowUploadList]="showUploadList"
+      [nzPreview]="handlePreview"
+      (nzChange)="statusChange($event)"
+
+    >
+      <i nz-icon nzType="plus"></i>
+      <div class="ant-upload-text">upload</div>
+    </nz-upload>
+    <!--   预览模态框   -->
+    <nz-modal
+      [nzVisible]="previewVisible"
+      [nzContent]="modalContent"
+      [nzFooter]="null"
+      (nzOnCancel)="previewVisible = false"
+    >
+      <ng-template #modalContent>
+        <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+      </ng-template>
+    </nz-modal>
+    <nz-form-item>
+      <nz-form-control [nzSpan]="12" nzErrorTip="图片不能为空!">
+        <input nz-input [(ngModel)]="vehicleInfo.imageUrl" style="display: none" name="imageUrl" required/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="5">备注</nz-form-label>
+      <nz-form-control [nzSpan]="12" nzErrorTip="备注不能为空!">
+        <textarea rows="4" nz-input [(ngModel)]="vehicleInfo.remarks" name="remarks" required></textarea>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>
+
+<ng-template #tplFooter>
+  <button nz-button nzType="primary" (click)="submitModal()" [nzLoading]="tplModalButtonLoading">
+    Close after submit
+  </button>
+</ng-template>

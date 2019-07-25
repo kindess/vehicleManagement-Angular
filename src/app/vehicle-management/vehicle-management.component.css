@@ -17,3 +17,8 @@
 .form-item{
 
 }
+::ng-deep .width-modal{
+  display: flex;
+  align-items: center;
+  min-width: 960px;
+}

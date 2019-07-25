@@ -8,5 +8,5 @@ export const httpOptions = {
     'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS',
     'Content-Type': 'application/json;charset=UTF-8',
   }),
-  withCredentials: true  // 设置浏览器携带cookie
+  withCredentials: true,  // 设置浏览器携带cookie
 }

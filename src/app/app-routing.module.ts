@@ -4,6 +4,7 @@ import {VehicleManagementComponent} from './vehicle-management/vehicle-managemen
 import {LoginAndRegisterComponent} from './login-and-register/login-and-register.component';
 import {IndexComponent} from './index/index.component';
 import {LoginGuard} from './LoginGuard';
+import {TestComponent} from "./test/test.component";
 
 
 /**
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {path: 'login', component: LoginAndRegisterComponent},
   {path: 'index', component: IndexComponent, canActivate: [LoginGuard]},
-  {path: 'vehicleManagement', component: VehicleManagementComponent, canActivate: [LoginGuard]}
+  {path: 'vehicleManagement', component: VehicleManagementComponent, canActivate: [LoginGuard]},
+  {path:'test',component:TestComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

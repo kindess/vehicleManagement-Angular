@@ -1,4 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+/* 引入的是快捷方式路径 */
+@import "~ng-zorro-antd/src/ng-zorro-antd.css";
 nav a {
   padding: 5px 10px;
   text-decoration: none;

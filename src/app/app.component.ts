@@ -1,10 +1,13 @@
-import { Component , TemplateRef} from '@angular/core';
-import {VehicleManagementComponent} from "./vehicle-management/vehicle-management.component";
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  template: `
+    <!-- 路由出口 -->
+    <router-outlet></router-outlet>
+  `
 })
+
 export class AppComponent {
   title = 'vehicleManagement';
   constructor() {
